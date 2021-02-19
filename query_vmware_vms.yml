@@ -1,0 +1,14 @@
+- hosts: localhost 
+  gather_facts: no
+  tasks:
+          - name: create vm from template
+            vmware_vm_info:
+                  hostname: 10.1.66.7
+                  username: administrator@vsphere.local
+                  password: "!Cisco123"
+                  port: 443
+                  validate_certs: False
+                  vm_type: template
+            register: vcenter_about_info
+          - debug:
+                  var: vcenter_about_info
